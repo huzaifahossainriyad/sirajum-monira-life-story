@@ -209,7 +209,7 @@
             padding: 0.75rem;
         }
         #chatSubmitBtn {
-            @apply bg-sky-700 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-md;
+            @apply bg-sky-700 hover:bg-sky-800 text-white font-bold py-3 px-6 rounded-lg transition duration-300 transform hover:scale-105;
         }
     </style>
 </head>
@@ -443,7 +443,7 @@
                     let chatHistory = [];
                     chatHistory.push({ role: "user", parts: [{ text: prompt }] });
                     const payload = { contents: chatHistory };
-                    // Replace "YOUR_ACTUAL_GEMINI_API_KEY_HERE" with your actual API Key
+                    // এখানে আপনার আসল API কী বসাবেন
                     const apiKey = "AIzaSyDdTVx64NDt1snW1oxUKt43rY_S16HiZto"; 
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
@@ -501,15 +501,9 @@
             const chatInput = document.getElementById('chatInput');
             const chatLoadingIndicator = document.getElementById('chatLoadingIndicator');
 
-            // Story context for the chatbot (optimized for length and clarity)
+            // Story context for the chatbot (greatly simplified)
             const storyContext = `
-                গল্পটি মনি নামের এক মেয়ের জীবন সংগ্রাম নিয়ে।
-                - মনি (প্রধান চরিত্র): পরিশ্রমী ও ধৈর্যশীল, ছোট ভাই মোস্তফার ভবিষ্যতের জন্য রাজশাহীতে সংগ্রাম করছে।
-                - Md. Mostofa Al-Amin (ছোট ভাই): মনিকে ভুল বোঝে, তার প্রচেষ্টাগুলো চাপ মনে করে, গ্রামে ফিরতে চায়।
-                - রিয়াদ (প্রেমিক ও সমর্থক): মনিকে ভালোবাসে, সবসময় সমর্থন দেয় এবং ভবিষ্যতে তাকে বিয়ে করার স্বপ্ন দেখে।
-                - গল্পের মূল বিষয়: পরিবারের জন্য মনির আত্মত্যাগ, ভাইয়ের সাথে ভুল বোঝাবুঝি সত্ত্বেও তার অবিচল সংগ্রাম এবং রিয়াদের ভালোবাসা।
-                - শেষ: মনি তার উজ্জ্বল ভবিষ্যতের স্বপ্ন দেখে এবং সংগ্রাম চালিয়ে যায়।
-                এই গল্পের চরিত্র এবং ঘটনা সম্পর্কে প্রশ্ন করুন।
+                মনি একজন পরিশ্রমী মেয়ে যে তার ছোট ভাই মোস্তফার জন্য রাজশাহীতে সংগ্রাম করছে। মোস্তফা তাকে ভুল বোঝে। মনি রিয়াদের কাছ থেকে মানসিক সমর্থন পায়, যে তাকে ভালোবাসে এবং বিয়ে করতে চায়। মনি তার উজ্জ্বল ভবিষ্যতের স্বপ্ন দেখে।
             `;
 
             chatbotFab.addEventListener('click', () => {
@@ -533,11 +527,12 @@
 
                 try {
                     let chatHistory = [];
-                    // Provide the story context to the LLM for relevant answers
-                    // Ensure the prompt clarifies the LLM's role to answer based *only* on provided context
-                    chatHistory.push({ role: "user", parts: [{ text: `আপনি মনির গল্প সম্পর্কে একজন জ্ঞানী পথপ্রদর্শক হিসেবে কাজ করবেন। শুধুমাত্র নিচের প্রেক্ষাপট (context) থেকে প্রশ্নগুলোর উত্তর দিন। যদি প্রশ্নটি প্রেক্ষাপটের বাইরে হয়, তাহলে বলুন যে আপনি শুধু এই গল্পটি সম্পর্কে উত্তর দিতে পারেন।\n\nগল্পের প্রেক্ষাপট: ${storyContext}\n\nপ্রশ্ন: ${userMessage}` }] });
+                    // Ensure the prompt is concise and focuses on the core question and context
+                    chatHistory.push({ role: "user", parts: [{ text: `এই গল্পটি সম্পর্কে উত্তর দিন: ${storyContext}\n\nপ্রশ্ন: ${userMessage}` }] });
                     const payload = { contents: chatHistory };
-                    const apiKey = "YOUR_ACTUAL_GEMINI_API_KEY_HERE"; // এখানে আপনার আসল API কী বসাবেন
+                    
+                    // এখানে আপনার আসল API কী বসাবেন (চ্যাটবটের জন্য)
+                    const apiKey = "AIzaSyDdTVx64NDt1snW1oxUKt43rY_S16HiZto"; 
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                     const response = await fetch(apiUrl, {
@@ -553,11 +548,12 @@
                         const aiResponse = result.candidates[0].content.parts[0].text;
                         appendMessage(aiResponse, 'ai');
                     } else {
-                        appendMessage("দুঃখিত, আমি এই মুহূর্তে উত্তর দিতে পারছি না।", 'ai');
+                        // More specific error for no candidates
+                        appendMessage("দুঃখিত, কোনো উত্তর জেনারেট করা যায়নি।", 'ai');
                     }
                 } catch (error) {
                     console.error("Chatbot API কল করতে সমস্যা হয়েছে:", error);
-                    appendMessage("দুঃখিত, একটি ত্রুটি হয়েছে।", 'ai');
+                    appendMessage("দুঃখিত, একটি ত্রুটি হয়েছে। আবার চেষ্টা করুন।", 'ai');
                 } finally {
                     chatLoadingIndicator.classList.add('hidden');
                     chatDisplay.scrollTop = chatDisplay.scrollHeight; // Scroll to bottom after AI response
