@@ -10,20 +10,6 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
     
-    <!-- Chosen Palette: Serene Sunset (Soft Yellows, Sky Blues, Accents of Rose & Emerald) - Background: linear-gradient(to bottom right, #FFFBEB, #E0F7FA), Text: text-gray-900, Accent: sky-700, rose-500, emerald-500 -->
-    <!-- Application Structure Plan: The application is designed as a vertical scrolling narrative, breaking Moni's journey into thematic sections. This structure allows users to digest the story piece by piece, focusing on different facets of her struggle and hope. The flow is: 1) Header with title and brief intro. 2) Story Summary Section (with Gemini API call). 3) A visual breakdown of her daily struggle with a chart. 4) An interactive section to explore the complex sibling relationship. 5) A section dedicated to her support system, Riyad, representing hope. 6) A concluding section focusing on her future aspirations, emphasizing the ongoing nature of her journey. 7) A floating chatbot button and modal for interactive Q&A. This non-linear, thematic approach is chosen over a simple text block to enhance user engagement and emotional connection with the characters and their circumstances, providing clear visual separation for each narrative segment. -->
-    <!-- Visualization & Content Choices: 
-        1. Moni's Daily Struggle (Report Info) -> Goal: Inform/Empathize -> Viz: Donut Chart (Chart.js) showing time distribution -> Interaction: Hover to see details -> Justification: Visually represents her immense daily sacrifice and time allocation more powerfully than plain text, fostering empathy.
-        2. Sibling Conflict (Report Info) -> Goal: Compare/Explore -> Viz: Interactive Text Block with Tabs -> Interaction: Clickable tabs to switch between Moni's and Mostofa's perspectives -> Justification: Allows the user to actively explore the nuances of the central emotional conflict from both sides, providing a deeper understanding of the family dynamics.
-        3. Relationship with Riyad (Report Info) -> Goal: Organize/Inform -> Viz: HTML/CSS Timeline -> Interaction: Static visual -> Justification: Structures the progression of their supportive relationship clearly and chronologically, highlighting a crucial aspect of her emotional support system.
-        4. Future Hope (Report Info) -> Goal: Inform/Inspire -> Viz: HTML/CSS Progress Bar -> Interaction: Static visual with animation -> Justification: Symbolizes her ongoing journey and unfinished struggle, providing a hopeful and forward-looking conclusion that reinforces the "no end" aspect of her story.
-        5. Story Summary (New LLM Feature) -> Goal: Summarize/Inform -> Viz: Button triggering Modal with LLM generated summary -> Interaction: Click, read, close -> Justification: Provides a quick overview of the complex narrative using AI.
-        6. Speak Your Heart Out (New LLM Feature) -> Goal: Empathize/Support -> Viz: Button triggering Modal with LLM response -> Interaction: Click, read, close -> Justification: Provides a direct emotional connection to Moni's struggles and offers empathetic support.
-        7. Future Scenario (New LLM Feature) -> Goal: Inspire/Motivate -> Viz: Button triggering Modal with LLM generated scenario -> Interaction: Click, read, close -> Justification: Offers a tangible vision of Moni's future success, reinforcing the hopeful theme.
-        8. Chatbot (New LLM Feature) -> Goal: Explore/Understand -> Viz: Floating button triggering Modal with chat interface -> Interaction: Type question, get AI response based on story context -> Justification: Allows users to delve deeper into specific aspects of the story by asking natural language questions.
-    -->
-    <!-- CONFIRMATION: NO SVG graphics used. NO Mermaid JS used. -->
-
     <style>
         body {
             font-family: 'Hind Siliguri', sans-serif;
@@ -231,14 +217,12 @@
 
     <main class="container mx-auto px-4 py-8 md:py-12 max-w-4xl">
 
-        <!-- Section 1: Introduction -->
         <header class="text-center mb-16 px-4 py-8 bg-sky-700 text-white rounded-2xl shadow-2xl" style="--animation-delay: 0s;">
             <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">🌟 আলোর খোঁজে মনি 🌟</h1>
             <p class="text-lg md:text-xl mx-auto opacity-90">এক বোনের অদম্য আত্মত্যাগ, ভাইয়ের ভবিষ্যৎ এবং এক অসমাপ্ত সংগ্রামের গল্প, যা ভবিষ্যতের উজ্জ্বল আশায় আজও জীবন্ত।</p>
             <button id="showSummaryBtn" class="mt-8 bg-white text-sky-700 hover:bg-gray-100 font-bold py-3 px-6 rounded-full shadow-md transition duration-300 transform hover:scale-105">📚 গল্পের সারসংক্ষেপ</button>
         </header>
 
-        <!-- Section 2: The Core Struggle -->
         <section id="struggle" class="mb-20 section-card" style="--animation-delay: 0.2s;">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">😥 মনির কঠিন সংগ্রাম</h2>
@@ -259,7 +243,6 @@
             </div>
         </section>
         
-        <!-- Section 3: Sibling Conflict -->
         <section id="conflict" class="mb-20 section-card" style="--animation-delay: 0.4s;">
             <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">🤔 বোনের আত্মত্যাগ ও ভাইয়ের জটিল ভাবনা 💔</h2>
@@ -276,7 +259,6 @@
             </div>
         </section>
 
-        <!-- Section 4: Ray of Hope -->
         <section id="hope" class="mb-20 section-card" style="--animation-delay: 0.6s;">
              <div class="text-center mb-12">
                 <h2 class="text-3xl md:text-4xl font-bold text-gray-800 mb-2">❤️ আশার আলো: রিয়াদ 💪</h2>
@@ -285,19 +267,16 @@
             <div class="max-w-4xl mx-auto">
                  <p class="text-center text-lg md:text-xl text-gray-700 mb-8 leading-relaxed">ফেসবুকে একটি সাধারণ পরিচয় থেকে শুরু করে তাদের সম্পর্ক রূপ নিয়েছিল এক গভীর বোঝাপড়ায়। রিয়াদ জানতো মনির সব কষ্টের কথা, তার প্রতিটি আত্মত্যাগ এবং তার বুকে লুকিয়ে থাকা স্বপ্নগুলো। সে কেবল একজন ভালোবাসার মানুষ ছিল না, ছিল মনির জীবনের সবচেয়ে বড় সমর্থন, যার সাথে মনি নির্দ্বিধায় সব কথা ভাগ করে নিতে পারতো। রিয়াদের অসীম ভালোবাসা আর তার প্রতি দৃঢ় বিশ্বাসই ছিল মনির এগিয়ে যাওয়ার সবচেয়ে বড় শক্তি। রিয়াদ বিশ্বাস করতো, একদিন মনি তার সমস্ত দুঃখ পেছনে ফেলে সফল হবে, এবং রিয়াদ সেদিন মনির পাশে তার জীবনসঙ্গী হিসেবে থাকবে।</p>
                  <div class="relative border-l-4 border-emerald-500 ml-4 md:ml-12 p-4">
-                    <!-- Milestone 1 -->
                     <div class="mb-10 ml-8">
                         <div class="absolute -left-3 mt-1.5 w-6 h-6 bg-emerald-500 rounded-full border-4 border-white shadow-md"></div>
                         <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-1">প্রথম পরিচয় ✨</h3>
                         <p class="text-gray-600 text-base md:text-lg">ফেসবুকের মাধ্যমে দুটি অচেনা জীবনের এক নতুন অধ্যায়ের সূচনা।</p>
                     </div>
-                    <!-- Milestone 2 -->
-                     <div class="mb-10 ml-8">
+                    <div class="mb-10 ml-8">
                         <div class="absolute -left-3 mt-1.5 w-6 h-6 bg-emerald-500 rounded-full border-4 border-white shadow-md"></div>
                         <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-1">গভীর বোঝাপড়া 🤝</h3>
                         <p class="text-gray-600 text-base md:text-lg">একজন আরেকজনের কষ্ট, স্বপ্ন এবং সীমাবদ্ধতাগুলো বোঝার চেষ্টা করা।</p>
                     </div>
-                     <!-- Milestone 3 -->
                      <div class="ml-8">
                         <div class="absolute -left-3 mt-1.5 w-6 h-6 bg-emerald-500 rounded-full border-4 border-white shadow-md"></div>
                         <h3 class="text-xl md:text-2xl font-bold text-gray-800 mb-1">ভবিষ্যতের স্বপ্ন 🌈</h3>
@@ -307,7 +286,6 @@
             </div>
         </section>
 
-        <!-- Section 5: The Future -->
         <section id="future" class="text-center bg-sky-700 text-white p-8 md:p-12 rounded-xl shadow-2xl" style="--animation-delay: 0.8s;">
             <h2 class="text-3xl md:text-4xl font-bold mb-4">🚀 অসমাপ্ত যাত্রা ও ভবিষ্যতের পথ 🌟</h2>
             <p class="max-w-3xl mx-auto text-gray-200 text-lg md:text-xl mb-8">মনি আজও রাজশাহীতে তার স্বপ্ন পূরণের জন্য সংগ্রাম করে যাচ্ছে। তার এই লড়াই হয়তো এখনো শেষ হয়নি, কিন্তু তার চোখে আছে এক উজ্জ্বল ভবিষ্যতের স্বপ্ন। সে বিশ্বাস করে, ইনশাআল্লাহ, তার সমস্ত কষ্ট সার্থক হবে এবং সে আরও ভালো করবে, আরও বড় হবে। তার এই সংগ্রাম কোনো শেষ নেই, এটি কেবল এক নতুন শুরুর পথে এগিয়ে চলা...</p>
@@ -320,12 +298,10 @@
             <button id="futureScenarioBtn" class="bg-white text-sky-700 hover:bg-gray-100 font-bold py-3 px-6 rounded-full shadow-md transition duration-300 transform hover:scale-105">✨ ভবিষ্যৎ কেমন হতে পারে? ✨</button>
         </section>
         
-        <!-- Footer / Credit -->
         <footer class="text-center mt-16 pb-8">
             <p class="text-gray-600 text-lg">কৃতজ্ঞতা: <span class="font-bold text-gray-700">রিয়াদ হোসেন হুজাইফা</span></p>
         </footer>
 
-        <!-- Modal Structure for LLM Responses -->
         <div id="apiResponseModal" class="modal hidden">
             <div class="modal-content">
                 <button id="closeModalBtn" class="modal-close-btn">&times;</button>
@@ -338,18 +314,15 @@
             </div>
         </div>
 
-        <!-- Chatbot FAB -->
         <div id="chatbotFab" class="chatbot-fab">
             <span class="text-3xl">💬</span>
         </div>
 
-        <!-- Chatbot Modal Structure -->
         <div id="chatModal" class="modal hidden">
             <div class="modal-content">
                 <button id="closeChatModalBtn" class="modal-close-btn">&times;</button>
                 <h3 class="text-2xl font-bold text-gray-800 mb-4">মনির গল্প নিয়ে চ্যাট করুন!</h3>
                 <div id="chatDisplay" class="mb-4 p-4 border rounded-lg bg-gray-50 flex-grow overflow-y-auto">
-                    <!-- Chat messages will appear here -->
                     <div class="chat-message ai">আমি মনির গল্প সম্পর্কে আপনার যেকোনো প্রশ্নের উত্তর দিতে প্রস্তুত। প্রশ্ন করুন!</div>
                 </div>
                 <form id="chatInputForm" class="flex gap-2">
@@ -460,6 +433,7 @@
             });
 
             async function callGeminiAPI(prompt, title, contentElement, loadingElement) {
+                modalTitle.textContent = title;
                 if (contentElement) contentElement.textContent = '';
                 if (loadingElement) loadingElement.classList.remove('hidden');
                 
@@ -469,6 +443,7 @@
                     let chatHistory = [];
                     chatHistory.push({ role: "user", parts: [{ text: prompt }] });
                     const payload = { contents: chatHistory };
+                    // Replace "YOUR_ACTUAL_GEMINI_API_KEY_HERE" with your actual API Key
                     const apiKey = "AIzaSyDdTVx64NDt1snW1oxUKt43rY_S16HiZto"; 
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
@@ -498,7 +473,6 @@
             // Button for "Speak Your Heart Out"
             const speakHeartBtn = document.getElementById('speakHeartBtn');
             speakHeartBtn.addEventListener('click', () => {
-                modalTitle.textContent = "মনিকে অনুপ্রেরণা";
                 const prompt = "মনি একজন মেয়ে যে নিজের ছোট ভাইয়ের জন্য কঠিন জীবন সংগ্রাম করছে রাজশাহীতে। সে প্রতিদিন অনেক পরিশ্রম করে। তার ভাই তাকে ভুল বোঝে এবং তার পরিশ্রমের মূল্য দেয় না। মনি খুব একা অনুভব করে, কিন্তু ধৈর্য ধরে থাকে। মনিকে সমর্থন দিয়ে একটি সহানুভূতিশীল এবং অনুপ্রেরণামূলক বার্তা দাও, যেন সে তার পথচলায় সাহস পায়। সর্বোচ্চ ৮০ শব্দের মধ্যে।";
                 callGeminiAPI(prompt, "মনিকে অনুপ্রেরণা", modalContent, loadingIndicator);
             });
@@ -506,7 +480,6 @@
             // Button for "Future Scenario"
             const futureScenarioBtn = document.getElementById('futureScenarioBtn');
             futureScenarioBtn.addEventListener('click', () => {
-                modalTitle.textContent = "মনির উজ্জ্বল ভবিষ্যৎ";
                 const prompt = "মনির জীবন সংগ্রামের গল্পটি হল: সে গ্রামে বাবা-মাকে রেখে রাজশাহীতে চাকরি খোঁজে আসে ভাইয়ের ভবিষ্যতের কথা চিন্তা করে। ভাইকে একটি ছোটখাটো কাজ দেয়। দুজনই অনেক কাজ পরিশ্রম করে। ভাইয়ের নাম Md. Mostofa Al-Amin। মোস্তফা বোনের অভিজ্ঞতা মেনে নেয় না এবং বোনকে জোর খাটাচ্ছে মনে করে। মনি অনেক কষ্ট পায়, কিন্তু ধৈর্যশীল। মনি ফেসবুকে রিয়াদ নামের এক ছেলের সাথে পরিচিত হয় যে তাকে খুবই ভালোবাসে এবং সাপোর্ট করে। রিয়াদ বিশ্বাস করে একদিন মনিকে বিয়ে করবে। মনির এই সংগ্রাম এখনো চলছে। এই তথ্যের ভিত্তিতে মনির একটি উজ্জ্বল ভবিষ্যতের বর্ণনা দাও। সর্বোচ্চ ৫০ শব্দের মধ্যে।";
                 callGeminiAPI(prompt, "মনির উজ্জ্বল ভবিষ্যৎ", modalContent, loadingIndicator);
             });
@@ -514,7 +487,6 @@
             // Button for "Story Summary"
             const showSummaryBtn = document.getElementById('showSummaryBtn');
             showSummaryBtn.addEventListener('click', () => {
-                modalTitle.textContent = "গল্পের সারসংক্ষেপ";
                 const prompt = "মনি নামের এক মেয়ের জীবন সংগ্রামের একটি গল্প। সে ছোট ভাইকে রাজশাহীতে এনে কাজ শেখায়, কিন্তু ভাই তাকে ভুল বোঝে। রিয়াদ নামের এক ছেলে মনিকে ভালোবাসে এবং সাপোর্ট করে। মনি ধৈর্যশীল এবং তার ভালো ভবিষ্যতের স্বপ্ন দেখে। এই গল্পের একটি সংক্ষিপ্ত সারসংক্ষেপ দিন। সর্বোচ্চ ১০০ শব্দের মধ্যে।";
                 callGeminiAPI(prompt, "গল্পের সারসংক্ষেপ", modalContent, loadingIndicator);
             });
@@ -529,11 +501,15 @@
             const chatInput = document.getElementById('chatInput');
             const chatLoadingIndicator = document.getElementById('chatLoadingIndicator');
 
-            // Story context for the chatbot
+            // Story context for the chatbot (optimized for length and clarity)
             const storyContext = `
-                মনির গল্প হলো একটি জীবন সংগ্রামের কাহিনী। মনি একজন মেয়ে, অল্প বয়সে সে গ্রাম থেকে রাজশাহীতে চাকরির খোঁজে আসে নিজের ছোট ভাই Md. Mostofa Al-Amin-এর ভবিষ্যতের কথা চিন্তা করে। মনি নিজে একটি ছোটখাটো কাজ করে এবং ভাইকে একটি দোকানে কাজ দেয়, যাতে সে অভিজ্ঞতা অর্জন করতে পারে। মনি অনেক পরিশ্রমী এবং ধৈর্যশীল।
-                কিন্তু মোস্তফা বোনের এই উদ্যোগকে মেনে নিতে পারে না, তার মনে হয় মনি তার উপর জোর খাটাচ্ছে। মোস্তফা প্রায়শই বিরক্ত থাকে এবং গ্রামে ফিরে যেতে চায়। মনির এই আচরণে কষ্ট পায় কারণ সে অনেক কষ্টে টাকা জমিয়ে ভাইকে সাহায্য করছে।
-                মনি ফেসবুকে রিয়াদ নামের একজন ছেলের সাথে পরিচিত হয়। রিয়াদ মনিকে খুব ভালোবাসে এবং সব সময় তাকে সমর্থন করে। রিয়াদ বিশ্বাস করে যে একদিন মনিকে সে বিয়ে করবে। মনির সংগ্রাম এখনো চলছে, এবং সে ভবিষ্যতে আরও ভালো কিছু করার স্বপ্ন দেখে। মনি কারো সাথে বেয়াদবি করে না, সবার কথা শোনে এবং সবার খেয়াল রাখে।
+                গল্পটি মনি নামের এক মেয়ের জীবন সংগ্রাম নিয়ে।
+                - মনি (প্রধান চরিত্র): পরিশ্রমী ও ধৈর্যশীল, ছোট ভাই মোস্তফার ভবিষ্যতের জন্য রাজশাহীতে সংগ্রাম করছে।
+                - Md. Mostofa Al-Amin (ছোট ভাই): মনিকে ভুল বোঝে, তার প্রচেষ্টাগুলো চাপ মনে করে, গ্রামে ফিরতে চায়।
+                - রিয়াদ (প্রেমিক ও সমর্থক): মনিকে ভালোবাসে, সবসময় সমর্থন দেয় এবং ভবিষ্যতে তাকে বিয়ে করার স্বপ্ন দেখে।
+                - গল্পের মূল বিষয়: পরিবারের জন্য মনির আত্মত্যাগ, ভাইয়ের সাথে ভুল বোঝাবুঝি সত্ত্বেও তার অবিচল সংগ্রাম এবং রিয়াদের ভালোবাসা।
+                - শেষ: মনি তার উজ্জ্বল ভবিষ্যতের স্বপ্ন দেখে এবং সংগ্রাম চালিয়ে যায়।
+                এই গল্পের চরিত্র এবং ঘটনা সম্পর্কে প্রশ্ন করুন।
             `;
 
             chatbotFab.addEventListener('click', () => {
@@ -558,9 +534,10 @@
                 try {
                     let chatHistory = [];
                     // Provide the story context to the LLM for relevant answers
-                    chatHistory.push({ role: "user", parts: [{ text: `এই গল্পটি সম্পর্কে উত্তর দাও: ${storyContext}\n\nপ্রশ্ন: ${userMessage}` }] });
+                    // Ensure the prompt clarifies the LLM's role to answer based *only* on provided context
+                    chatHistory.push({ role: "user", parts: [{ text: `আপনি মনির গল্প সম্পর্কে একজন জ্ঞানী পথপ্রদর্শক হিসেবে কাজ করবেন। শুধুমাত্র নিচের প্রেক্ষাপট (context) থেকে প্রশ্নগুলোর উত্তর দিন। যদি প্রশ্নটি প্রেক্ষাপটের বাইরে হয়, তাহলে বলুন যে আপনি শুধু এই গল্পটি সম্পর্কে উত্তর দিতে পারেন।\n\nগল্পের প্রেক্ষাপট: ${storyContext}\n\nপ্রশ্ন: ${userMessage}` }] });
                     const payload = { contents: chatHistory };
-                    const apiKey = ""; 
+                    const apiKey = "YOUR_ACTUAL_GEMINI_API_KEY_HERE"; // এখানে আপনার আসল API কী বসাবেন
                     const apiUrl = `https://generativelanguage.googleapis.com/v1beta/models/gemini-2.0-flash:generateContent?key=${apiKey}`;
 
                     const response = await fetch(apiUrl, {
