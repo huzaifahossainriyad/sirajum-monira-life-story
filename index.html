@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html lang="bn">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>আমার গল্পের ভুবন - রিয়াদ হোসেন হুজাইফা</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Hind+Siliguri:wght@300;400;500;600;700&display=swap" rel="stylesheet">
+    <style>
+        body {
+            font-family: 'Hind Siliguri', sans-serif;
+            background: linear-gradient(to bottom right, #E0F7FA, #FFFBEB); /* Light blue to soft yellow gradient */
+            color: #1a202c; /* gray-900 */
+            line-height: 1.75;
+            overflow-x: hidden;
+        }
+        .story-card {
+            background-color: white;
+            padding: 1.5rem;
+            border-radius: 1rem;
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+            transition: transform 0.3s ease-in-out, box-shadow 0.3s ease-in-out;
+        }
+        .story-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+        }
+        .btn-read-more {
+            @apply inline-block mt-4 bg-sky-700 hover:bg-sky-800 text-white font-bold py-2 px-4 rounded-full transition duration-300 transform hover:scale-105;
+        }
+    </style>
+</head>
+<body>
+    <main class="container mx-auto px-4 py-8 md:py-12 max-w-4xl">
+        <header class="text-center mb-16 px-4 py-8 bg-sky-700 text-white rounded-2xl shadow-2xl">
+            <h1 class="text-4xl md:text-6xl font-extrabold mb-4 leading-tight">📚 আমার গল্পের ভুবন 📖</h1>
+            <p class="text-lg md:text-xl mx-auto opacity-90">রিয়াদ হোসেন হুজাইফা রচিত বিভিন্ন জীবনভিত্তিক গল্প, উপন্যাস ও অভিজ্ঞতা।</p>
+        </header>
+
+        <section class="mb-20">
+            <h2 class="text-3xl md:text-4xl font-bold text-center mb-12">গল্পের তালিকা ✨</h2>
+
+            <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+                <a href="moni-story.html" class="story-card">
+                    <h3 class="text-2xl font-semibold mb-2 text-gray-800">আলোর খোঁজে মনি 🌟</h3>
+                    <p class="text-gray-700 mb-4">একটি মেয়ের অদম্য সংগ্রাম, ভাইয়ের ভবিষ্যৎ এবং ভালোবাসার এক অনুপ্রেরণামূলক গল্প।</p>
+                    <span class="btn-read-more">গল্পটি পড়ুন →</span>
+                </a>
+
+                </div>
+        </section>
+
+        <footer class="text-center mt-16 pb-8">
+            <p class="text-gray-600 text-lg">সৃষ্টিকর্তা: <span class="font-bold text-gray-700">রিয়াদ হোসেন হুজাইফা</span></p>
+        </footer>
+
+    </main>
+</body>
+</html>
